@@ -10,7 +10,7 @@ const UncontrolledForm = () => {
 
     return <form onSubmit={handleSubmit}>
         <label>
-            Name: <input type='text' ref={inputName}  defaultValue='Thareq' />
+            Name: <input type='text' ref={inputName}  defaultValue='Arsyad' />
         </label>
         <input type='submit' value='Submit' />
     </form>

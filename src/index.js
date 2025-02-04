@@ -9,15 +9,18 @@ import Article from "./article/article";
 import AllEvent from "./event/Event";
 import Counter from "./state/counter";
 import Form from "./form/form";
+import FormInput from "./text/formInput";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Hello name='Thareq' gretting='Selamat Pagi' />
+    {/*<Hello name='Thareq' gretting='Selamat Pagi' />*/}
     <App />
-    <AllEvent />
-    <Counter />
-    <Form />
+    {/*<AllEvent />*/}
+    {/*<Counter />*/}
+    {/*<Form />*/}
+    {/*<FormInput />*/}
+
   </React.StrictMode>
 );
 
