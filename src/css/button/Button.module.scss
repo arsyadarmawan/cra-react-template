@@ -1,0 +1,17 @@
+/*
+    this only for button component
+*/
+
+$bgColor: #eee;
+$bgColorHover: red;
+
+.default {
+    border: 1px solid #ddd;
+    background-color: $bgColor;
+    padding: 5px 10px;
+
+    text-align: center;
+}
+.default:hover{
+    background-color: $bgColorHover;
+}

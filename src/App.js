@@ -3,6 +3,9 @@ import './App.css';
 import Article from "./article/article";
 import FormMultiple from "./text/formmultiple";
 import Formbasicvalidation from "./text/formbasicvalidation";
+import FormMultipleBasicValidation from "./text/formmultiplevalidation";
+import Button from "./button/button";
+import ButtonState from "./state/button-useState";
 
 function App() {
   return (
@@ -10,7 +13,12 @@ function App() {
         {/*<Article/>*/}
         {/*<FormMultiple />*/}
 
-        <Formbasicvalidation />
+        {/*<Formbasicvalidation />*/}
+
+        <FormMultipleBasicValidation />
+
+          <Button  >Test</Button>
+          <ButtonState />
       </div>
   );
 }
