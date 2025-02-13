@@ -1,0 +1,8 @@
+[
+  { "path": "/post/:id", "element": "Post" },
+  { "path": "/", "element": "Home" },
+  { "path": "/about", "element": "About" },
+  { "path": "/category/*", "element": "Category" },
+  { "path": "/member", "element": "GuardRoute", "props": { "element": "Member", "isLogin": true } },
+  { "path": "/login", "element": "Login", "props": { "setLogin": true } }
+]
