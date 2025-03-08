@@ -21,11 +21,16 @@ function App() {
           <Provider store={store} >
               <Router>
                   <Switch>
-                      <Route path="/register" component={Register} />
-                      <Route path="/" component={Home}/>
-                      <Route path="/register/success" component={RegisterSuccess} />
-                      {/*<Route path="/login" component={Login} />*/}
-                      <Route path="/login">
+                      <Route path="/register" >
+                          <Register/>
+                      </Route>
+                      <Route exact path="/" >
+                            <Home/>
+                      </Route>
+                      <Route path="/register/success">
+                          <RegisterSuccess/>
+                      </Route>
+                      <Route path="/login" >
                           <Login/>
                       </Route>
                   </Switch>

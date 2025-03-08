@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { Link } from 'react-router-dom';
-// (3) import `config`
 import config  from '../../config';
 export default function StoreLogo(){
     return (

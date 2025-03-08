@@ -19,20 +19,31 @@ export default function Login(){
     const [status, setStatus] = React.useState(statuslist.idle);
     const dispatch = useDispatch();
     const history = useHistory();
+
+    // (1) fungsi untuk menangani submit form
     const onSubmit = async ({email, password}) => {
+        // (2) set status menjadi `process`
         setStatus(statuslist.process);
+        // (3) kirim data ke Web API menggunakan helper `login`
         let { data } = await login(email, password);
+        // (4) cek apakah server mengembalikan error
         if(data.error){
+            // (5) tangani error bertipe 'invalidCredential'
             setError('password', {type: 'invalidCredential', message:
                 data.message});
             setStatus(statuslist.error);
         } else {
             let {user, token} = data;
+            // dispatch ke Redux store, action `userLogin` dengan data
+            // `user` dan `token`
             dispatch(userLogin(user, token));
+            // (10) redirect ke halaman home
             history.push('/');
         }
         setStatus(statuslist.success);
     }
+
+
     return (
         <LayoutOne size="small">
             <br/>

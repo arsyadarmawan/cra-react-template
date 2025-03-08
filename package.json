@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@meronex/icons": "^4.0.0",
     "@tailwindcss/cli": "^4.0.6",
     "axios": "^1.7.9",
     "cra-template": "1.2.0",
+    "debounce-promise": "^3.1.2",
     "dotenv": "^16.4.7",
     "path": "^0.12.7",
     "postcss": "^8.5.2",
