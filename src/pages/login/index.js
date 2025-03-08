@@ -74,7 +74,7 @@ export default function Login(){
                     </Button>
                 </form>
                 <div className="text-center mt-2">
-                    Belum punya akun? <Link to="/register"><b>Daftar sekarang.
+                    Belum punya akun? <Link to="/register"><b>Register Now.
                 </b></Link>
                 </div>
             </Card>

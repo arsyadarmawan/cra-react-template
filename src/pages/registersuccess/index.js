@@ -8,16 +8,16 @@ export default function RegisterSuccess(){
             <Card color="white">
                 <div className="text-center">
                     <Text as="h3">
-                        Pendaftaran Berhasil
+                        Register Success
                     </Text>
                     <Text>
-                        Silahkan masuk ke aplikasi
+                        Please log in to the application
                     </Text>
                     <br/>
 
                     <Link to="/login">
                         <Button fitContainer>
-                            Masuk
+                            Login
                         </Button>
                     </Link>
                 </div>

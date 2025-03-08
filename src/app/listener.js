@@ -3,7 +3,7 @@ import store from './store';
 // let currentAuth;
 function listen(){
     store.subscribe(()=>{
-        console.log('State berubah:', store.getState());
+        console.log('change state:', store.getState());
     });
 }
 

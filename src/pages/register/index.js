@@ -1,47 +1,44 @@
 import * as React from 'react';
 import { LayoutOne, Card, FormControl, InputText, InputPassword, Button } from 'upkit';
 import { useForm } from 'react-hook-form';
-import rules from './validation';
-import {registerUser} from "../../api/auth";
 import { useHistory, Link } from 'react-router-dom';
+
 import StoreLogo from '../../components/storelogo';
+import  rules  from './validation';
+import {registerUser} from "../../api/auth";
+
 
 const statuslist = {
     idle: 'idle',
     process: 'process',
     success: 'success',
     error: 'error',
-}
+};
 
 export default function Register(){
     let { register, handleSubmit, errors, setError } = useForm();
-
     let [ status, setStatus ] = React.useState(statuslist.idle);
     let history = useHistory();
 
     const onSubmit = async formData => {
         let { password, password_confirmation } = formData;
-
-        if (password !== password_confirmation){
-            setError('password_confirmation', {type: 'server', message: 'Password tidak sama'});
-            return;
+        if(password !== password_confirmation) {
+            return setError('password_confirmation', { type: 'equality', message: 'Konfirmasi password harus sama dengan password'});
         }
         setStatus(statuslist.process);
         let { data } = await registerUser(formData);
         if(data.error){
+            console.log(data)
             let fields = Object.keys(data.fields);
-
             fields.forEach(field => {
-                setError(field, {type: 'server', message:
-                    data.fields[field]?.properties?.message})
+                setError(field, {type: 'custom', message: data.fields[field]?.properties?.message});
             });
-
-            setStatus(statuslist.error);
-            return
+            setStatus(statuslist.error)
         }
-        setStatus(statuslist.success);
-        history.push('/register/berhasil');
+        setStatus(statuslist.success)
+        history.push('/success/register');
     }
+
     return (
         <LayoutOne size="small">
             <Card color="white">
@@ -62,8 +59,8 @@ export default function Register(){
                         <InputText
                             name="email"
                             placeholder="Email"
-                            ref={register(rules.email)}
                             fitContainer
+                            ref={register(rules.email)}
                         />
                     </FormControl>
 
@@ -71,8 +68,8 @@ export default function Register(){
                         <InputPassword
                             name="password"
                             placeholder="Password"
-                            ref={register(rules.password)}
                             fitContainer
+                            ref={register(rules.password)}
                         />
                     </FormControl>
 
@@ -80,8 +77,8 @@ export default function Register(){
                         <InputPassword
                             name="password_confirmation"
                             placeholder="Konfirmasi Password"
-                            ref={register(rules.password_confirmation)}
                             fitContainer
+                            ref={register(rules.password_confirmation)}
                         />
                     </FormControl>
 
@@ -89,14 +86,15 @@ export default function Register(){
                         size="large"
                         fitContainer
                         disabled={status === statuslist.process}
-                    > {status === statuslist.process ? "Sedang memproses" : "Mendaftar"} </Button>
-
-                    <div className="text-center mt-2">
-                        Sudah punya akun? <Link to="/login"> <b> Masuk Sekarang. </b> </Link>
-                    </div>
+                    > {status === statuslist.process ? "being process" : "Register"} </Button>
 
                 </form>
+                <div className="text-center mt-2">
+                    Already registered? <Link to="/login"> <b> Login now. </b> </Link>
+                </div>
+
             </Card>
+
         </LayoutOne>
     )
 }
