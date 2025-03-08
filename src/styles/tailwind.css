@@ -1,4 +1,7 @@
 /*! tailwindcss v4.0.6 | MIT License | https://tailwindcss.com */
+.container {
+  width: 100%;
+}
 .inline-block {
   display: inline-block;
 }
@@ -13,6 +16,9 @@
 }
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .filter {
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);

@@ -10,14 +10,18 @@ export default function TopBar() {
     return (
         <Responsive desktop={1} justify="between" items="center">
             <div>
-                <StoreLogo />
+                <StoreLogo/>
             </div>
 
-            <div className="mr-2 inline-block text-red-600 font-bold">
-                <Link to={auth?.user ? '/account' : '/login'}>
-                    {auth?.user?.full_name}
+            <div className="mr-5 text-right">
+                <Link to={auth.user ? '/account' : '/login'}>
+                    <div className="mr-2 inline-block text-red-600 font-bold">
+                        {auth?.user?.full_name}
+                    </div>
+                    <ButtonCircle
+                        icon={<FaUser/>}
+                    />
                 </Link>
-                <ButtonCircle icon={<FaUser />} />
             </div>
         </Responsive>
     );
