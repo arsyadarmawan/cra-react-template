@@ -15,7 +15,7 @@ import {
 
 import { getProducts } from '../../api/product';
 
-let debouncedFetchProducts = debounce(getProducts, 1000);
+let debouncedFetchProducts = debounce(getProducts, 500);
 
 export const fetchProducts = () => {
 

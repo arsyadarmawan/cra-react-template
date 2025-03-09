@@ -9,11 +9,13 @@ import { Provider } from 'react-redux';
 import store from './app/store';
 import { listen } from './app/listener';
 import Register from './pages/register';
+import {getCart} from "./api/cart";
 
 
 function App() {
     React.useEffect(() => {
         listen();
+        getCart();
     },[])
 
     return (

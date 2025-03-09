@@ -1,12 +1,12 @@
 
 const rules = {
     email: {
-        required: {value: true, message: 'Email tidak boleh kosong.'},
-        maxLength: {value: 255, message: 'Panjang email maksimal 255 karakter'}
+        required: {value: true, message: 'Email can not be be blank.'},
+        maxLength: {value: 255, message: 'Maximum password length 255 characters'}
     },
     password: {
-        required: {value: true, message: 'Password tidak boleh kosong.'},
-        maxLength: {value: 255, message: 'Panjang password maksimal 255 karakter.'}
+        required: {value: true, message: 'Password can not be blank'},
+        maxLength: {value: 255, message: 'Maximum password length 255 characters'}
     }
 }
 
