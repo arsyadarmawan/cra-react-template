@@ -24,10 +24,17 @@ import {
 
 } from "../../features/products/action";
 import {tags} from "./tags";
+import Cart from "../../components/cart";
+import {addItem, removeItem} from "../../features/cart/actions";
+import { useHistory } from 'react-router-dom';
+
 
 export default function Home(){
     let dispatch = useDispatch();
     let products = useSelector(state => state.products);
+    let carts = useSelector(state => state.cart);
+    let history = useHistory();
+
     React.useEffect(() => {
         dispatch(fetchProducts());
     }, [dispatch, products.currentPage, products.keyword, products.category, products.tags]);
@@ -83,7 +90,7 @@ export default function Home(){
                                                 imgUrl=
                                                     {`${config.api_host}/upload/${product.image_url}`}
                                                 price={product.price}
-                                                onAddToCart={_ => null}
+                                                onAddToCart={_ => dispatch(addItem(product))}
                                             />
                                         </div>
                                     })}
@@ -100,8 +107,13 @@ export default function Home(){
                                 </div>
                             </div>
                             <div className="w-full md:w-1/4 h-full shadow-lg border-r border-white bg-black-100">
-                            Keranjang belanja di sini
-                        </div>
+                                <Cart
+                                    items={carts}
+                                    onItemInc={item => dispatch(addItem(item))}
+                                    onItemDec={item => dispatch(removeItem(item))}
+                                    onCheckout={_ => history.push("/checkout")}
+                                />
+                            </div>
                     </div>
                 }
                 sidebarSize={80}

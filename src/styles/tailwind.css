@@ -14,11 +14,21 @@
 .min-h-screen {
   min-height: 100vh;
 }
+.w-3\/3 {
+  width: calc(3/3 * 100%);
+}
 .w-full {
   width: 100%;
 }
 .justify-center {
   justify-content: center;
+}
+.overflow-auto {
+  overflow: auto;
+}
+.border-r {
+  border-right-style: var(--tw-border-style);
+  border-right-width: 1px;
 }
 .text-center {
   text-align: center;
@@ -37,6 +47,11 @@ body {
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
