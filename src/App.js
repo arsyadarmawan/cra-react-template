@@ -10,6 +10,8 @@ import store from './app/store';
 import { listen } from './app/listener';
 import Register from './pages/register';
 import {getCart} from "./api/cart";
+import useraddaddress from "./pages/useraddaddress";
+import UserAddressAdd from "./pages/useraddaddress";
 
 
 function App() {
@@ -34,6 +36,9 @@ function App() {
                       </Route>
                       <Route path="/login" >
                           <Login/>
+                      </Route>
+                      <Route path="/alamat-pengiriman/tambah" >
+                          <UserAddressAdd/>
                       </Route>
                   </Switch>
               </Router>

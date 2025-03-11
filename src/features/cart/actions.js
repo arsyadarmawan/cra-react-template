@@ -22,6 +22,10 @@ export function clearItems(){
     }
 }
 
+export function sumPrice(items) {
+    return items.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+}
+
 export function setItems(items){
     return {
         type: constant.SET_ITEMS,

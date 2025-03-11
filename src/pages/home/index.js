@@ -29,6 +29,7 @@ import {addItem, removeItem} from "../../features/cart/actions";
 import { useHistory } from 'react-router-dom';
 
 
+
 export default function Home(){
     let dispatch = useDispatch();
     let products = useSelector(state => state.products);
@@ -87,8 +88,7 @@ export default function Home(){
                                         return <div key={index} className="p-2">
                                             <CardProduct
                                                 title={product.name}
-                                                imgUrl=
-                                                    {`${config.api_host}/upload/${product.image_url}`}
+                                                imgUrl={`${config.api_host}/upload/${product.image_url}`}
                                                 price={product.price}
                                                 onAddToCart={_ => dispatch(addItem(product))}
                                             />
