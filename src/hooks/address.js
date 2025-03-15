@@ -17,18 +17,23 @@ export function useAddress(){
     let [page, setPage] = React.useState(1);
     let [limit, setLimit] = React.useState(10);
 
-    let fetchAddress = async function(){
+    let fetchAddress = React.useCallback(async function(){
         setStatus(statuslist.process);
         let { data: {data, count, error}} = await getAddress({page, limit});
-        if (error) {
+        if(error){
             setStatus(statuslist.error);
-            return;
+            return
         }
-
         setStatus(statuslist.success);
         setData(data);
         setCount(count);
-    };
+
+    }, [page, limit]);
+
+    React.useEffect(() => {
+        fetchAddress();
+    }, [fetchAddress]);
+
 
     React.useEffect(() => {
         fetchAddress();

@@ -10,9 +10,9 @@ import store from './app/store';
 import { listen } from './app/listener';
 import Register from './pages/register';
 import {getCart} from "./api/cart";
-import useraddaddress from "./pages/useraddaddress";
+import UserAddress from "./pages/useraddress";
 import UserAddressAdd from "./pages/useraddaddress";
-
+import Checkout from "./pages/checkout";
 
 function App() {
     React.useEffect(() => {
@@ -40,6 +40,12 @@ function App() {
                       <Route path="/alamat-pengiriman/tambah" >
                           <UserAddressAdd/>
                       </Route>
+                      <Route path="/alamat-pengiriman">
+                          <UserAddress/>
+                      </Route>
+                        <Route path="/checkout">
+                            <Checkout/>
+                        </Route>
                   </Switch>
               </Router>
           </Provider>
