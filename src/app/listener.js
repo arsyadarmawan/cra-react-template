@@ -10,6 +10,7 @@ function listener(){
 
     currentAuth = store.getState().auth;
     currentCart = store.getState().cart;
+
     let { token } = currentAuth;
 
     if(currentAuth !== previousAuth){
@@ -21,6 +22,7 @@ function listener(){
         localStorage.setItem('cart', JSON.stringify(currentCart));
         saveCart(token, currentCart);
     }
+
 }
 
 function listen(){
