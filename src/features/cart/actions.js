@@ -3,12 +3,10 @@ import  * as constant from './constants';
 export function addItem(item){
     return {
         type: constant.ADD_ITEM,
-        item: {
-            ...item,
-            product: item.product || item
-        }
+        item
     }
 }
+
 
 export function removeItem(item){
     return {

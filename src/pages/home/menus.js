@@ -8,5 +8,4 @@ const menus = [
     {icon: '/images/menus/snack.png', label: 'snack', id: 'snack'},
     {icon: '/images/menus/pastry.png', label: 'pastry', id: 'pastry'},
 ];
-// export supaya bisa dipakai di file lain
 export default menus;

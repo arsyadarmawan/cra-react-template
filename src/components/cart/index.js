@@ -30,31 +30,31 @@ export default function Cart({items, onItemInc, onItemDec, onCheckout}){
                     onClick={onCheckout}
                 />
             </div>
-            {!items.length ? <div className="text-center text-sm text-red-900">
-                No items in carts </div> : null}
+            {!items.length ? <div className="text-center text-sm text-red-900">No items in carts </div> : null}
             <div className="p-2">
                 {items.map((item, index) => {
-                    return <div key={index} className="mb-2">
-                        <CardItem
-                            imgUrl={`${config.api_host}/upload/${item.image_url}`}
-                            name={item.name}
-                            qty={item.qty}
-                            color="orange"
-                            onInc={_ => onItemInc(item)}
-                            onDec={_ => onItemDec(item)}
-                        /></div>
+                    return (<div key={index} className="mb-2">
+                            <CardItem
+                                imgUrl={`${config.api_host}/upload/${item.image_url}`}
+                                name={item.name}
+                                qty={item.qty}
+                                color="orange"
+                                onInc={_ => onItemInc(item)}
+                                onDec={_ => onItemDec(item)}
+                            />
+                        </div>)
                 })}
             </div>
         </div>
         )
-        }
+}
 
-        Cart.propTypes = {
+    Cart.propTypes = {
         items: arrayOf(shape({
-        _id: string.isRequired,
-        name: string.isRequired,
-        qty: oneOfType([string, number]).isRequired
-    })),
+            _id: string.isRequired,
+            name: string.isRequired,
+            qty: oneOfType([string, number]).isRequired
+        })),
         onItemInc: func,
         onItemDec: func,
         onCheckout: func

@@ -28,8 +28,6 @@ import Cart from "../../components/cart";
 import {addItem, removeItem} from "../../features/cart/actions";
 import { useHistory } from 'react-router-dom';
 
-
-
 export default function Home(){
     let dispatch = useDispatch();
     let products = useSelector(state => state.products);
@@ -43,12 +41,13 @@ export default function Home(){
         <div>
             <LayoutSidebar
                 sidebar={
-                <SideNav
-                    items={menus}
-                    verticalAlign="top"
-                    active={products.category}
-                    onChange={category => dispatch(setCategory(category))}
-                />}
+                    <SideNav
+                        items={menus}
+                        verticalAlign="top"
+                        active={products.category}
+                        onChange={category => dispatch(setCategory(category))}
+                    />
+                }
                 content={
                     <div className="md:flex md:flex-row-reverse w-full mr-5 h-full min-h-screen">
                         <div className="w-full md:w-3/4 pl-5 pb-10">
