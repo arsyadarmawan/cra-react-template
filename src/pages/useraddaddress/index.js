@@ -3,11 +3,8 @@ import {rules} from "./validation";
 import {LayoutOne, InputText, FormControl, Textarea, Button} from 'upkit';
 import {useForm} from 'react-hook-form';
 import {useHistory} from 'react-router-dom';
-// import {useDispatch} from 'react-redux';
 import TopBar from "../../components/topbar";
 import SelectWilayah from "../../components/selectwilayah";
-// import createAddress from "../../api/address";
-
 import {createAddress} from "../../api/address";
 
 export default function UserAddressAdd(){
@@ -56,22 +53,22 @@ export default function UserAddressAdd(){
         <br />
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <FormControl label="Nama alamat" errorMessage={errors.nama_alamat?.message} color="black">
+                <FormControl label="Address Name" errorMessage={errors.nama_alamat?.message} color="black">
                     <InputText
-                        placeholder="Nama alamat"
+                        placeholder="Address Name"
                         fitContainer
                         name="nama_alamat"
                         ref={register(rules.nama_alamat)}
                     />
                 </FormControl>
-                <FormControl label="Provinsi" errorMessage={errors.provinsi?.message} color="black">
+                <FormControl label="Province Name" errorMessage={errors.provinsi?.message} color="black">
                     <SelectWilayah
                         onChange={option => updateValue('provinsi', option)}
                         name="provinsi"
                         value={getValues().provinsi}
                     />
                 </FormControl>
-                <FormControl label="Kabupaten/kota" errorMessage={errors.kabupaten?.message} color="black">
+                <FormControl label="City" errorMessage={errors.kabupaten?.message} color="black">
                     <SelectWilayah
                         tingkat="kabupaten"
                         kodeInduk={getValues().provinsi?.value}
@@ -79,7 +76,7 @@ export default function UserAddressAdd(){
                         value={getValues().kabupaten}
                     />
                 </FormControl>
-                <FormControl label="Kecamatan" errorMessage={errors.kecamatan?.message} color="black">
+                <FormControl label="District" errorMessage={errors.kecamatan?.message} color="black">
                     <SelectWilayah
                         tingkat="kecamatan"
                         kodeInduk={getValues().kabupaten?.value}
@@ -87,7 +84,7 @@ export default function UserAddressAdd(){
                         value={getValues().kecamatan}
                     />
                 </FormControl>
-                <FormControl label="Kelurahan" errorMessage={errors.kelurahan?.message} color="black" >
+                <FormControl label="Sub Distric" errorMessage={errors.kelurahan?.message} color="black" >
                     <SelectWilayah
                         tingkat="desa"
                         kodeInduk={getValues().kecamatan?.value}
