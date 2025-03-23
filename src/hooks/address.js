@@ -1,8 +1,5 @@
-// import * as React   from "react";
 import * as React from 'react';
-
 import {getAddress} from "../api/address";
-
 const statuslist = {
     idle: 'idle',
     process: 'process',
@@ -35,9 +32,6 @@ export function useAddress(){
     }, [fetchAddress]);
 
 
-    React.useEffect(() => {
-        fetchAddress();
-    }, [fetchAddress]);
 
     return {
         data,

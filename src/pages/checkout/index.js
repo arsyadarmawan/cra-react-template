@@ -88,7 +88,7 @@ const addressColumns = [
 ];
 
 export default function Checkout(){
-    let [ activeStep, setActiveStep ] = React.useState(0);
+    let [ activeStep, setActiveStep ] = React.useState(1);
     let cart = useSelector(state => state.cart);
     let [ selectedAddress, setSelectedAddress ] = React.useState(null);
 
@@ -109,10 +109,8 @@ export default function Checkout(){
             delivery_address: selectedAddress._id
         }
 
-
         let { data } = await createOrder(payload);
         if(data?.error) return;
-        console.log("data order", data);
         history.push(`/invoice/${data._id}`);
         dispatch(clearItems());
     }
@@ -126,15 +124,9 @@ export default function Checkout(){
             <TopBar/>
             <Text as="h3">Checkout</Text>
             <Steps
-                steps={[
-                    {label: 'Alamat Pengiriman'},
-                    {label: 'Pembayaran'},
-                    {label: 'Selesai'}
-                ]}>
                 steps={steps}
-                activeStep={activeStep}
-            </Steps>
-
+                active={activeStep}
+            />
 
             {activeStep === 0 ? <div>
                 <br/>
@@ -259,9 +251,6 @@ export default function Checkout(){
                     </Responsive>
                 </div>
                 : null}
-
-
         </LayoutOne>
-)
-;
+    );
 }
