@@ -13,6 +13,12 @@ import {getCart} from "./api/cart";
 import UserAddress from "./pages/useraddress";
 import UserAddressAdd from "./pages/useraddaddress";
 import Checkout from "./pages/checkout";
+import Invoice from "./pages/invoice";
+import UserAccount from "./pages/useraccount";
+import UserOrders from "./pages/userorder";
+import Logout from "./pages/logout";
+import GuardRoute from "./components/guardroute";
+import GuestOnlyRoute from "./components/guardsonlyroute";
 
 function App() {
     React.useEffect(() => {
@@ -25,9 +31,9 @@ function App() {
           <Provider store={store} >
               <Router>
                   <Switch>
-                      <Route path="/register" >
+                      <GuestOnlyRoute path="/register" >
                           <Register/>
-                      </Route>
+                      </GuestOnlyRoute>
                       <Route exact path="/" >
                             <Home/>
                       </Route>
@@ -37,15 +43,28 @@ function App() {
                       <Route path="/login" >
                           <Login/>
                       </Route>
-                      <Route path="/alamat-pengiriman/tambah" >
+                      <GuardRoute path="/alamat-pengiriman/tambah" >
                           <UserAddressAdd/>
-                      </Route>
-                      <Route path="/alamat-pengiriman">
+                      </GuardRoute>
+                      <GuardRoute path="/alamat-pengiriman">
                           <UserAddress/>
-                      </Route>
-                        <Route path="/checkout">
-                            <Checkout/>
-                        </Route>
+                      </GuardRoute>
+                      <GuardRoute path="/checkout">
+                          <Checkout/>
+                      </GuardRoute>
+                      <GuardRoute path="/invoice/:order_id">
+                            <Invoice/>
+                      </GuardRoute>
+                      <GuardRoute path="/account">
+                          <UserAccount/>
+                      </GuardRoute>
+                      <GuardRoute path="/pesanan">
+                          <UserOrders/>
+                      </GuardRoute>
+                      <GuardRoute path="/logout">
+                          <Logout/>
+                      </GuardRoute>
+
                   </Switch>
               </Router>
           </Provider>

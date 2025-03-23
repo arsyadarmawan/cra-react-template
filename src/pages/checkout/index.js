@@ -112,6 +112,7 @@ export default function Checkout(){
 
         let { data } = await createOrder(payload);
         if(data?.error) return;
+        console.log("data order", data);
         history.push(`/invoice/${data._id}`);
         dispatch(clearItems());
     }
@@ -126,7 +127,7 @@ export default function Checkout(){
             <Text as="h3">Checkout</Text>
             <Steps
                 steps={[
-                    {label: 'Alamat Pengiriman', active: true},
+                    {label: 'Alamat Pengiriman'},
                     {label: 'Pembayaran'},
                     {label: 'Selesai'}
                 ]}>
@@ -246,14 +247,14 @@ export default function Checkout(){
                             </Button>
                         </div>
                         <div className="text-right">
-                            <Button
-                                onClick={handleCreateOrder}
-                                color="red"
-                                size="large"
-                                iconBefore={<FaRegCheckCircle/>}
-                            >
-                                Bayar
-                            </Button>
+                        <Button
+                             onClick={handleCreateOrder}
+                             color="red"
+                             size="large"
+                             iconBefore={<FaRegCheckCircle/>}
+                        >
+                            Bayar
+                        </Button>
                         </div>
                     </Responsive>
                 </div>
